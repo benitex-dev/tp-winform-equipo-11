@@ -1,0 +1,17 @@
+# Ignorar archivos y carpetas de Visual Studio
+.vs/
+*.user
+*.suo
+*.vcxproj.user
+*.vscode/
+
+# Archivos binarios y temporales
+bin/
+obj/
+
+# Archivos de configuración personal
+*.dbmdl
+*.log
+*.pdb
+*.cache
+*.tmp

@@ -29,7 +29,7 @@ namespace TPWinForm_equipo_x
 
         private void btnSaludar_Click(object sender, EventArgs e)
         {
-            lblSaludar.Text = "Holaa";
+            lblSaludar.Text = "Chauu";
         }
     }
 }

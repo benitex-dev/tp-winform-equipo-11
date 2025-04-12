@@ -5,6 +5,13 @@ VisualStudioVersion = 17.9.34714.143
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TPWinForm_equipo-x", "TPWinForm_equipo-x\TPWinForm_equipo-x.csproj", "{B0113958-9514-4F8F-A24A-7EAE380B982A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementos de la solución", "Elementos de la solución", "{2DDCE002-5CAF-48E8-8C04-5C72DC43BDAA}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dominio", "dominio\dominio.csproj", "{89019C92-BAF1-49DB-880C-DC5B123D2081}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +22,10 @@ Global
 		{B0113958-9514-4F8F-A24A-7EAE380B982A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0113958-9514-4F8F-A24A-7EAE380B982A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0113958-9514-4F8F-A24A-7EAE380B982A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89019C92-BAF1-49DB-880C-DC5B123D2081}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89019C92-BAF1-49DB-880C-DC5B123D2081}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89019C92-BAF1-49DB-880C-DC5B123D2081}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89019C92-BAF1-49DB-880C-DC5B123D2081}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

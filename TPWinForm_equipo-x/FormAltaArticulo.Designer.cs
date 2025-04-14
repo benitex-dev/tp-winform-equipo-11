@@ -44,6 +44,8 @@
             this.cmbMarca = new System.Windows.Forms.ComboBox();
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
             this.pictureBoxArticulo = new System.Windows.Forms.PictureBox();
+            this.btnCrearArticulo = new System.Windows.Forms.Button();
+            this.btnCancelarArticulo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxArticulo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -180,17 +182,37 @@
             // 
             // pictureBoxArticulo
             // 
-            this.pictureBoxArticulo.Location = new System.Drawing.Point(645, 12);
+            this.pictureBoxArticulo.Location = new System.Drawing.Point(139, 233);
             this.pictureBoxArticulo.Name = "pictureBoxArticulo";
-            this.pictureBoxArticulo.Size = new System.Drawing.Size(367, 230);
+            this.pictureBoxArticulo.Size = new System.Drawing.Size(385, 230);
             this.pictureBoxArticulo.TabIndex = 15;
             this.pictureBoxArticulo.TabStop = false;
+            // 
+            // btnCrearArticulo
+            // 
+            this.btnCrearArticulo.Location = new System.Drawing.Point(198, 491);
+            this.btnCrearArticulo.Name = "btnCrearArticulo";
+            this.btnCrearArticulo.Size = new System.Drawing.Size(75, 23);
+            this.btnCrearArticulo.TabIndex = 16;
+            this.btnCrearArticulo.Text = "Crear";
+            this.btnCrearArticulo.UseVisualStyleBackColor = true;
+            // 
+            // btnCancelarArticulo
+            // 
+            this.btnCancelarArticulo.Location = new System.Drawing.Point(383, 491);
+            this.btnCancelarArticulo.Name = "btnCancelarArticulo";
+            this.btnCancelarArticulo.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelarArticulo.TabIndex = 17;
+            this.btnCancelarArticulo.Text = "Cancelar";
+            this.btnCancelarArticulo.UseVisualStyleBackColor = true;
             // 
             // FormAltaArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1024, 254);
+            this.ClientSize = new System.Drawing.Size(647, 525);
+            this.Controls.Add(this.btnCancelarArticulo);
+            this.Controls.Add(this.btnCrearArticulo);
             this.Controls.Add(this.pictureBoxArticulo);
             this.Controls.Add(this.cmbCategoria);
             this.Controls.Add(this.cmbMarca);
@@ -233,5 +255,7 @@
         private System.Windows.Forms.ComboBox cmbMarca;
         private System.Windows.Forms.ComboBox cmbCategoria;
         private System.Windows.Forms.PictureBox pictureBoxArticulo;
+        private System.Windows.Forms.Button btnCrearArticulo;
+        private System.Windows.Forms.Button btnCancelarArticulo;
     }
 }

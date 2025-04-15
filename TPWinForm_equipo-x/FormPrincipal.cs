@@ -21,7 +21,9 @@ namespace TPWinForm_equipo_11
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             FormAltaArticulo altaArticulo = new FormAltaArticulo();
+            
             altaArticulo.Show();
+            
         }
     }
 }

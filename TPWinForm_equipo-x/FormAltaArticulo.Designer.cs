@@ -58,6 +58,7 @@
             this.lblTitulo.Size = new System.Drawing.Size(131, 37);
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "TITULO";
+            
             // 
             // label2
             // 

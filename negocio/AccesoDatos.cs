@@ -42,6 +42,7 @@ namespace negocio
                 throw ex;
             }
         }
+        //metodo para ejecutar acción
         public void ejecutarAccion()
         {
             comando.Connection = conexion;

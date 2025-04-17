@@ -42,5 +42,19 @@ namespace TPWinForm_equipo_11
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        private void FormAltaArticulo_Load(object sender, EventArgs e)
+        {
+            CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
+            try
+            {
+                cmbCategoria.DataSource = categoriaNegocio.listar();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

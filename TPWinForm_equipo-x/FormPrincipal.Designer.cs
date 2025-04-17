@@ -54,7 +54,7 @@
             this.dgvCatalogo.Name = "dgvCatalogo";
             this.dgvCatalogo.Size = new System.Drawing.Size(493, 394);
             this.dgvCatalogo.TabIndex = 0;
-           
+            this.dgvCatalogo.SelectionChanged += new System.EventHandler(this.dgvCatalogo_SelectionChanged);
             // 
             // pictureBoxImagen
             // 
@@ -62,6 +62,7 @@
             this.pictureBoxImagen.Location = new System.Drawing.Point(714, 98);
             this.pictureBoxImagen.Name = "pictureBoxImagen";
             this.pictureBoxImagen.Size = new System.Drawing.Size(228, 232);
+            this.pictureBoxImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxImagen.TabIndex = 1;
             this.pictureBoxImagen.TabStop = false;
             // 

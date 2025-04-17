@@ -1,4 +1,5 @@
-﻿using negocio;
+﻿using dominio;
+using negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,6 +39,33 @@ namespace TPWinForm_equipo_11
             dgvCatalogo.Columns["Imagen"].Visible = false;
             // escondemos la columna id ya que la misma solo es importante para el desarrollador
             dgvCatalogo.Columns["Id"].Visible = false;
+        }
+
+        private void cargarImagen(string imagen)
+        {
+            try
+            {
+                pictureBoxImagen.Load(imagen);
+            }
+            catch (Exception ex)
+            {
+                pictureBoxImagen.Load("https://cdn-icons-png.flaticon.com/512/813/813728.png"); //se carga una imagen por defecto
+            }
+        }
+
+        private void dgvCatalogo_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvCatalogo.CurrentRow != null)
+            {
+
+                Articulo seleccionado = (Articulo)dgvCatalogo.CurrentRow.DataBoundItem;
+
+                ImagenNegocio negocio = new ImagenNegocio();
+                List<Imagen> imagenes = negocio.listarImagenesArticulo(seleccionado.Id);
+
+                if (imagenes.Count > 0 && imagenes != null) cargarImagen(imagenes[0].URL); //selecciona la primera imagen de la lista por lo tanto es la imagen principal del articulo
+                     
+            }
         }
     }
 }

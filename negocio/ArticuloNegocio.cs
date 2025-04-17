@@ -15,7 +15,7 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setConsulta("SELECT ID,CODIGO,NOMBRE,DESCRIPCION,PRECIO FROM ARTICULOS");
+                datos.setConsulta("SELECT A.ID, CODIGO, NOMBRE, A.DESCRIPCION, PRECIO, M.Descripcion Marca, C.Descripcion Categoria FROM ARTICULOS A, MARCAS M, CATEGORIAS C WHERE M.ID = A.IDMARCA AND C.ID = A.IdCategoria");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -26,6 +26,13 @@ namespace negocio
                     articulo.CodArticulo = (string)datos.Lector["CODIGO"];
                     articulo.Nombre = (string)datos.Lector["NOMBRE"];
                     articulo.Precio = (decimal)datos.Lector["PRECIO"];
+                    
+                    articulo.Marca = new Marca();
+                    articulo.Marca.Descripcion = (string)datos.Lector["Marca"];
+                    
+                    articulo.Categoria = new Categoria();
+                    articulo.Categoria.Descripcion = (string)datos.Lector["Categoria"];
+                    
                     articulos.Add(articulo);
                 }
 

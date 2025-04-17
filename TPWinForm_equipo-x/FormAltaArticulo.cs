@@ -47,14 +47,16 @@ namespace TPWinForm_equipo_11
         private void FormAltaArticulo_Load(object sender, EventArgs e)
         {
             CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
+            MarcaNegocio marcaNegocio = new MarcaNegocio(); 
             try
             {
                 cmbCategoria.DataSource = categoriaNegocio.listar();
+                cmbMarca.DataSource = marcaNegocio.listar();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
         }
     }

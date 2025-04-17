@@ -9,6 +9,21 @@ namespace negocio
 {
     public class ArticuloNegocio
     {
+        public void agregarArticulo(Articulo articulo)
+        {   AccesoDatos accesoDatos = new AccesoDatos();
+
+            try
+            {
+                accesoDatos.setConsulta("INSERT INTO ARTICULOS (Codigo,Nombre,Descripcion,Precio)values('"+articulo.CodArticulo+"','"+articulo.Nombre+"','"+articulo.Descripcion+"',"+articulo.Precio+")");
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
         public List<Articulo> listar()
         {
             List<Articulo> articulos = new List<Articulo>();

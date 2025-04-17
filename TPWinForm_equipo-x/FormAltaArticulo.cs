@@ -1,4 +1,6 @@
-﻿using System;
+﻿using dominio;
+using negocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +19,28 @@ namespace TPWinForm_equipo_11
             InitializeComponent();
         }
 
-       
+        private void btnCrearArticulo_Click(object sender, EventArgs e)
+        {   
+            Articulo articulo = new Articulo();
+            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+            try
+            {
+                articulo.CodArticulo = txtCodArt.Text;
+                articulo.Nombre = txtNombreArt.Text;
+                articulo.Descripcion = txtDescripArt.Text;
+                articulo.Precio =decimal.Parse(txtPrecio.Text) ;
+                articulo.Marca =(Marca) cmbMarca.SelectedItem;
+                articulo.Categoria = (Categoria) cmbCategoria.SelectedItem;
+
+                articuloNegocio.agregarArticulo(articulo);
+                MessageBox.Show("Articulo agregado exitosamente");
+                Close();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+        }
     }
 }

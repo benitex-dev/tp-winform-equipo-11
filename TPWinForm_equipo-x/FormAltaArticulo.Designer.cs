@@ -58,7 +58,6 @@
             this.lblTitulo.Size = new System.Drawing.Size(131, 37);
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "TITULO";
-            
             // 
             // label2
             // 
@@ -197,6 +196,7 @@
             this.btnCrearArticulo.TabIndex = 16;
             this.btnCrearArticulo.Text = "Crear";
             this.btnCrearArticulo.UseVisualStyleBackColor = true;
+            this.btnCrearArticulo.Click += new System.EventHandler(this.btnCrearArticulo_Click);
             // 
             // btnCancelarArticulo
             // 

@@ -23,7 +23,7 @@ namespace TPWinForm_equipo_11
         {
             FormAltaArticulo altaArticulo = new FormAltaArticulo();
             
-            altaArticulo.Show();
+            altaArticulo.ShowDialog();
             
         }
 

@@ -31,8 +31,8 @@ namespace TPWinForm_equipo_11
 
         private void VentanaPrincipal_Load(object sender, EventArgs e)
         {
-            //ArticuloNegocio articuloNegocio = new ArticuloNegocio();
-            //dgvCatalogo.DataSource = articuloNegocio.listar();
+            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+            dgvCatalogo.DataSource = articuloNegocio.listar();
         }
     }
 }

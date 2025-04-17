@@ -15,7 +15,7 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setConsulta("SELECT ID,DESCRIPCION FROM ARTICULOS");
+                datos.setConsulta("SELECT ID,CODIGO,NOMBRE,DESCRIPCION,PRECIO FROM ARTICULOS");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -23,7 +23,9 @@ namespace negocio
                     Articulo articulo = new Articulo();
                     articulo.Id = (int)datos.Lector["ID"];
                     articulo.Descripcion = (string)datos.Lector["DESCRIPCION"];
-
+                    articulo.CodArticulo = (string)datos.Lector["CODIGO"];
+                    articulo.Nombre = (string)datos.Lector["NOMBRE"];
+                    articulo.Precio = (decimal)datos.Lector["PRECIO"];
                     articulos.Add(articulo);
                 }
 

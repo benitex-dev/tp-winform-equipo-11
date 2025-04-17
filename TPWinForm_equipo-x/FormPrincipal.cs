@@ -1,4 +1,5 @@
-﻿using System;
+﻿using negocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,6 +25,14 @@ namespace TPWinForm_equipo_11
             
             altaArticulo.Show();
             
+        }
+
+        
+
+        private void VentanaPrincipal_Load(object sender, EventArgs e)
+        {
+            //ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+            //dgvCatalogo.DataSource = articuloNegocio.listar();
         }
     }
 }

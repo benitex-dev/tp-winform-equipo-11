@@ -54,6 +54,7 @@
             this.dgvCatalogo.Name = "dgvCatalogo";
             this.dgvCatalogo.Size = new System.Drawing.Size(493, 394);
             this.dgvCatalogo.TabIndex = 0;
+           
             // 
             // pictureBoxImagen
             // 
@@ -217,6 +218,7 @@
             this.MinimumSize = new System.Drawing.Size(986, 592);
             this.Name = "VentanaPrincipal";
             this.Text = "Catalogo";
+            this.Load += new System.EventHandler(this.VentanaPrincipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCatalogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImagen)).EndInit();
             this.ResumeLayout(false);

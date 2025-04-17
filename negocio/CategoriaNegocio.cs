@@ -44,5 +44,44 @@ namespace negocio
 
             }
         }
+
+        public void agregar(Categoria nuevo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setConsulta("INSERT INTO CATEGORIAS (DESCRIPCION) VALUES('" + nuevo.Descripcion + "')");
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public void modificar(Categoria categoria)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setConsulta("UPDATE CATEGORIAS SET DESCRIPION = '" + categoria.Descripcion + "' WHERE ID = '" + categoria.Id + "'");
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
     }
 }

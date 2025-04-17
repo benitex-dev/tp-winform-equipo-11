@@ -52,6 +52,7 @@ namespace negocio
             try
             {
                 datos.setConsulta("INSERT INTO CATEGORIAS (DESCRIPCION) VALUES('" + nuevo.Descripcion + "')");
+                datos.ejecutarAccion();
             }
             catch (Exception ex)
             {
@@ -71,6 +72,7 @@ namespace negocio
             try
             {
                 datos.setConsulta("UPDATE CATEGORIAS SET DESCRIPION = '" + categoria.Descripcion + "' WHERE ID = '" + categoria.Id + "'");
+                datos.ejecutarAccion();
             }
             catch (Exception ex)
             {

@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace TPWinForm_equipo_11
 {
     public partial class FormAltaArticulo : Form

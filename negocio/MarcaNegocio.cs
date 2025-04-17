@@ -28,10 +28,10 @@ namespace negocio
                     marca.Descripcion = (string)datos.Lector["DESCRIPCION"];
 
                     marcas.Add(marca);
-
-                    return marcas;
-                       
-                }
+    
+                }  
+                
+                return marcas;
             }
             catch (Exception ex)
             {

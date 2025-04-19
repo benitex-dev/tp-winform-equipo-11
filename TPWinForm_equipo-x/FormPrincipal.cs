@@ -159,5 +159,11 @@ namespace TPWinForm_equipo_11
             // escondemos la columna id ya que la misma solo es importante para el desarrollador
             dgvCatalogo.Columns["Id"].Visible = false;
         }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            textBoxFiltro.Text = "";
+
+        }
     }
 }

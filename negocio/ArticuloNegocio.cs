@@ -9,6 +9,7 @@ namespace negocio
 {
     public class ArticuloNegocio
     {
+
         public void agregarArticulo(Articulo articulo)
         {   AccesoDatos accesoDatos = new AccesoDatos();
 

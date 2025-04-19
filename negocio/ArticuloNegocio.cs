@@ -46,7 +46,9 @@ namespace negocio
                     articulo.Descripcion = (string)datos.Lector["DESCRIPCION"];
                     articulo.CodArticulo = (string)datos.Lector["CODIGO"];
                     articulo.Nombre = (string)datos.Lector["NOMBRE"];
-                    articulo.Precio = (decimal)datos.Lector["PRECIO"];
+                    
+                    if (!(datos.Lector["Precio"] is DBNull))
+                        articulo.Precio = decimal.Parse(datos.Lector["PRECIO"].ToString());
                     
                     articulo.Marca = new Marca();
                     articulo.Marca.Descripcion = (string)datos.Lector["Marca"];

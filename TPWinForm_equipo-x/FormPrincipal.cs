@@ -80,5 +80,15 @@ namespace TPWinForm_equipo_11
                      
             }
         }
+
+        private void btnDetalle_Click(object sender, EventArgs e)
+        {
+            Articulo seleccionado;
+            seleccionado = (Articulo)dgvCatalogo.CurrentRow.DataBoundItem;
+
+            FormDetalle formDetalle = new FormDetalle(seleccionado);
+
+            formDetalle.ShowDialog();
+        }
     }
 }

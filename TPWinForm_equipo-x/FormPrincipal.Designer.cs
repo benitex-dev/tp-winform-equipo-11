@@ -50,11 +50,14 @@
             // 
             this.dgvCatalogo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvCatalogo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCatalogo.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvCatalogo.Location = new System.Drawing.Point(181, 119);
+            this.dgvCatalogo.MultiSelect = false;
             this.dgvCatalogo.Name = "dgvCatalogo";
+            this.dgvCatalogo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCatalogo.Size = new System.Drawing.Size(493, 394);
             this.dgvCatalogo.TabIndex = 0;
-           
+            this.dgvCatalogo.SelectionChanged += new System.EventHandler(this.dgvCatalogo_SelectionChanged);
             // 
             // pictureBoxImagen
             // 
@@ -62,6 +65,7 @@
             this.pictureBoxImagen.Location = new System.Drawing.Point(714, 98);
             this.pictureBoxImagen.Name = "pictureBoxImagen";
             this.pictureBoxImagen.Size = new System.Drawing.Size(228, 232);
+            this.pictureBoxImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxImagen.TabIndex = 1;
             this.pictureBoxImagen.TabStop = false;
             // 
@@ -98,6 +102,7 @@
             this.btnDetalle.TabIndex = 5;
             this.btnDetalle.Text = "Ver Detalle";
             this.btnDetalle.UseVisualStyleBackColor = false;
+            this.btnDetalle.Click += new System.EventHandler(this.btnDetalle_Click);
             // 
             // labelFiltro
             // 
@@ -169,6 +174,7 @@
             this.btnEliminar.TabIndex = 12;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnFiltro
             // 

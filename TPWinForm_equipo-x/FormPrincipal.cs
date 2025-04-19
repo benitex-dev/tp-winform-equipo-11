@@ -27,18 +27,28 @@ namespace TPWinForm_equipo_11
             FormAltaArticulo altaArticulo = new FormAltaArticulo();
             
             altaArticulo.ShowDialog();
-            
+            cargar();
         }
 
         
 
         private void VentanaPrincipal_Load(object sender, EventArgs e)
         {
+            cargar();
+           
+        }
+        private void cargar()
+        {
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+<<<<<<< HEAD
 
             try
             {
                 listaArticulos = articuloNegocio.listar();
+=======
+            try
+            {
+>>>>>>> 4608460bc4ccc3479e4cc4e3003a429fd46e3ca9
                 //listamos los articulos en nuestro data grid view
                 dgvCatalogo.DataSource = articuloNegocio.listar();
                 //escondemos la columna imagen ya que la url de la misma no es importante para el usuario
@@ -46,13 +56,87 @@ namespace TPWinForm_equipo_11
                 // escondemos la columna id ya que la misma solo es importante para el desarrollador
                 dgvCatalogo.Columns["Id"].Visible = false;
             }
+<<<<<<< HEAD
             catch (Exception ex )
+=======
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void cargarImagen(string imagen)
+        {
+            try
+            {
+                pictureBoxImagen.Load(imagen);
+            }
+            catch (Exception ex)
+            {
+                pictureBoxImagen.Load("https://cdn-icons-png.flaticon.com/512/813/813728.png"); //se carga una imagen por defecto
+            }
+        }
+
+        private void dgvCatalogo_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvCatalogo.CurrentRow != null)
+            {
+
+                Articulo seleccionado = (Articulo)dgvCatalogo.CurrentRow.DataBoundItem;
+
+                ImagenNegocio negocio = new ImagenNegocio();
+                List<Imagen> imagenes = negocio.listarImagenesArticulo(seleccionado.Id);
+
+                if (imagenes.Count > 0 && imagenes != null) cargarImagen(imagenes[0].URL); //selecciona la primera imagen de la lista por lo tanto es la imagen principal del articulo
+                     
+            }
+        }
+
+        private void btnDetalle_Click(object sender, EventArgs e)
+        {
+            Articulo seleccionado;
+            seleccionado = (Articulo)dgvCatalogo.CurrentRow.DataBoundItem;
+
+            FormDetalle formDetalle = new FormDetalle(seleccionado);
+
+            formDetalle.ShowDialog();
+        }
+
+        private void eliminar()
+        {
+            Articulo seleccionado;
+            ArticuloNegocio articulo = new ArticuloNegocio();
+
+            try
+            {
+                DialogResult respuesta = MessageBox.Show("¿De verdad queres Eliminar?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (respuesta == DialogResult.Yes)
+                {
+                    seleccionado = (Articulo)dgvCatalogo.CurrentRow.DataBoundItem;
+
+                    articulo.eliminarArticulo(seleccionado.Id);
+
+                    cargar();
+                }
+            }
+            catch (Exception ex)
+>>>>>>> 4608460bc4ccc3479e4cc4e3003a429fd46e3ca9
             {
 
                 MessageBox.Show(ex.ToString());
             }
 
+<<<<<<< HEAD
         
+=======
+
+        }
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            eliminar();      
+>>>>>>> 4608460bc4ccc3479e4cc4e3003a429fd46e3ca9
         }
     }
 }

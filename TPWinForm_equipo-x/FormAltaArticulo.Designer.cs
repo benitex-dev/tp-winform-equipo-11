@@ -156,6 +156,7 @@
             this.txtImg.Name = "txtImg";
             this.txtImg.Size = new System.Drawing.Size(181, 20);
             this.txtImg.TabIndex = 11;
+            this.txtImg.Leave += new System.EventHandler(this.txtImg_Leave);
             // 
             // txtPrecio
             // 
@@ -166,6 +167,7 @@
             // 
             // cmbMarca
             // 
+            this.cmbMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMarca.FormattingEnabled = true;
             this.cmbMarca.Location = new System.Drawing.Point(505, 107);
             this.cmbMarca.Name = "cmbMarca";
@@ -174,6 +176,7 @@
             // 
             // cmbCategoria
             // 
+            this.cmbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCategoria.FormattingEnabled = true;
             this.cmbCategoria.Location = new System.Drawing.Point(505, 150);
             this.cmbCategoria.Name = "cmbCategoria";

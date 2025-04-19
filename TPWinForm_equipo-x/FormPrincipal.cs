@@ -35,7 +35,11 @@ namespace TPWinForm_equipo_11
         private void VentanaPrincipal_Load(object sender, EventArgs e)
         {
             cargar();
-           
+            
+            comboBoxCampo.Items.Add("Código");
+            comboBoxCampo.Items.Add("Nombre");
+            comboBoxCampo.Items.Add("Descripción");
+            comboBoxCampo.Items.Add("Precio");
         }
         private void cargar()
         {
@@ -158,6 +162,26 @@ namespace TPWinForm_equipo_11
             dgvCatalogo.Columns["Imagen"].Visible = false;
             // escondemos la columna id ya que la misma solo es importante para el desarrollador
             dgvCatalogo.Columns["Id"].Visible = false;
+        }
+
+        private void comboBoxCampo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            string opcion = comboBoxCampo.SelectedItem.ToString();
+            if (opcion == "Precio")
+            {
+                comboBoxCriterio.Items.Clear();
+                comboBoxCriterio.Items.Add("Mayor a");
+                comboBoxCriterio.Items.Add("Menor a");
+                comboBoxCriterio.Items.Add("Igual a");
+            }
+            else
+            {
+                comboBoxCriterio.Items.Clear();
+                comboBoxCriterio.Items.Add("Comienza con");
+                comboBoxCriterio.Items.Add("Termina con");
+                comboBoxCriterio.Items.Add("Contiene");
+            }
         }
     }
 }

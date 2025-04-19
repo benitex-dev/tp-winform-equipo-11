@@ -90,5 +90,36 @@ namespace TPWinForm_equipo_11
 
             formDetalle.ShowDialog();
         }
+
+        private void eliminar()
+        {
+            Articulo seleccionado;
+            ArticuloNegocio articulo = new ArticuloNegocio();
+
+            try
+            {
+                DialogResult respuesta = MessageBox.Show("¿De verdad queres Eliminar?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (respuesta == DialogResult.Yes)
+                {
+                    seleccionado = (Articulo)dgvCatalogo.CurrentRow.DataBoundItem;
+
+                    articulo.eliminarArticulo(seleccionado.Id);
+
+                    cargar();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+
+
+        }
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            eliminar();      
+        }
     }
 }

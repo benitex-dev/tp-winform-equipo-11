@@ -52,6 +52,22 @@ namespace negocio
             }
         }
 
+        public void eliminarArticulo(int id)
+        {
+            try
+            {
+                AccesoDatos datos = new AccesoDatos();
+                datos.setConsulta("delete from ARTICULOS where id = @id");
+                datos.setParametro("Id", @id);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
         public List<Articulo> listar()
         {
             List<Articulo> articulos = new List<Articulo>();

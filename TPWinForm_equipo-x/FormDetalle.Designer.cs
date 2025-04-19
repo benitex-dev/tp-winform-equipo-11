@@ -44,6 +44,7 @@
             this.lblCategoria = new System.Windows.Forms.Label();
             this.lblMarca = new System.Windows.Forms.Label();
             this.lblPrecio = new System.Windows.Forms.Label();
+            this.lblImagen = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pboxDetalle)).BeginInit();
             this.SuspendLayout();
             // 
@@ -195,11 +196,25 @@
             this.lblPrecio.TabIndex = 15;
             this.lblPrecio.Text = "label12";
             // 
+            // lblImagen
+            // 
+            this.lblImagen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblImagen.AutoSize = true;
+            this.lblImagen.Location = new System.Drawing.Point(467, 152);
+            this.lblImagen.Name = "lblImagen";
+            this.lblImagen.Size = new System.Drawing.Size(35, 13);
+            this.lblImagen.TabIndex = 16;
+            this.lblImagen.Text = "label7";
+            this.lblImagen.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // FormDetalle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(597, 223);
+            this.Controls.Add(this.lblImagen);
             this.Controls.Add(this.lblPrecio);
             this.Controls.Add(this.lblMarca);
             this.Controls.Add(this.lblCategoria);
@@ -243,5 +258,6 @@
         private System.Windows.Forms.Label lblCategoria;
         private System.Windows.Forms.Label lblMarca;
         private System.Windows.Forms.Label lblPrecio;
+        private System.Windows.Forms.Label lblImagen;
     }
 }

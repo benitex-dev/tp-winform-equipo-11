@@ -37,7 +37,6 @@
             this.comboBoxCriterio = new System.Windows.Forms.ComboBox();
             this.comboBoxCampo = new System.Windows.Forms.ComboBox();
             this.textBoxFiltro = new System.Windows.Forms.TextBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnFiltro = new System.Windows.Forms.Button();
@@ -143,33 +142,23 @@
             // textBoxFiltro
             // 
             this.textBoxFiltro.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textBoxFiltro.Location = new System.Drawing.Point(181, 82);
+            this.textBoxFiltro.Location = new System.Drawing.Point(181, 84);
             this.textBoxFiltro.Name = "textBoxFiltro";
-            this.textBoxFiltro.Size = new System.Drawing.Size(281, 20);
+            this.textBoxFiltro.Size = new System.Drawing.Size(249, 20);
             this.textBoxFiltro.TabIndex = 9;
             this.textBoxFiltro.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnBuscar.BackColor = System.Drawing.SystemColors.Control;
-            this.btnBuscar.Location = new System.Drawing.Point(484, 80);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(88, 23);
-            this.btnBuscar.TabIndex = 10;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = false;
             // 
             // btnLimpiar
             // 
             this.btnLimpiar.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnLimpiar.BackColor = System.Drawing.SystemColors.Control;
-            this.btnLimpiar.Location = new System.Drawing.Point(586, 80);
+            this.btnLimpiar.Location = new System.Drawing.Point(452, 84);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(88, 23);
             this.btnLimpiar.TabIndex = 11;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnEliminar
             // 
@@ -243,7 +232,6 @@
             this.Controls.Add(this.btnFiltro);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnLimpiar);
-            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.textBoxFiltro);
             this.Controls.Add(this.comboBoxCampo);
             this.Controls.Add(this.comboBoxCriterio);
@@ -277,7 +265,6 @@
         private System.Windows.Forms.ComboBox comboBoxCriterio;
         private System.Windows.Forms.ComboBox comboBoxCampo;
         private System.Windows.Forms.TextBox textBoxFiltro;
-        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnFiltro;

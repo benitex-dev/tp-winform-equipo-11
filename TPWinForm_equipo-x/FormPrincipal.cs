@@ -164,6 +164,12 @@ namespace TPWinForm_equipo_11
             dgvCatalogo.Columns["Id"].Visible = false;
         }
 
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            textBoxFiltro.Text = "";
+
+        }
+
         private void comboBoxCampo_SelectedIndexChanged(object sender, EventArgs e)
         {
 

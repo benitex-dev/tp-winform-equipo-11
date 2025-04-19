@@ -47,10 +47,9 @@ namespace TPWinForm_equipo_11
                 listaArticulos = articuloNegocio.listar();
                 //listamos los articulos en nuestro data grid view
                 dgvCatalogo.DataSource = articuloNegocio.listar();
-                //escondemos la columna imagen ya que la url de la misma no es importante para el usuario
-                dgvCatalogo.Columns["Imagen"].Visible = false;
-                // escondemos la columna id ya que la misma solo es importante para el desarrollador
-                dgvCatalogo.Columns["Id"].Visible = false;       
+                ocultarColumnas();
+
+
             }
 
 
@@ -131,6 +130,7 @@ namespace TPWinForm_equipo_11
 
         }
 
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             List<Articulo> listaFiltrada;
@@ -147,6 +147,17 @@ namespace TPWinForm_equipo_11
 
             dgvCatalogo.DataSource = null;
             dgvCatalogo.DataSource = listaFiltrada;
+            ocultarColumnas();
+        }
+
+
+
+        private void ocultarColumnas()
+        {
+            //escondemos la columna imagen ya que la url de la misma no es importante para el usuario
+            dgvCatalogo.Columns["Imagen"].Visible = false;
+            // escondemos la columna id ya que la misma solo es importante para el desarrollador
+            dgvCatalogo.Columns["Id"].Visible = false;
         }
     }
 }

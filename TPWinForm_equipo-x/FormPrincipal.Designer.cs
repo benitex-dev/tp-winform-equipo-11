@@ -36,7 +36,7 @@
             this.labelFiltro = new System.Windows.Forms.Label();
             this.comboBoxFiltro2 = new System.Windows.Forms.ComboBox();
             this.comboBoxFiltro1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxFiltro = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
@@ -134,13 +134,14 @@
             this.comboBoxFiltro1.Size = new System.Drawing.Size(121, 21);
             this.comboBoxFiltro1.TabIndex = 8;
             // 
-            // textBox1
+            // textBoxFiltro
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textBox1.Location = new System.Drawing.Point(181, 82);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(281, 20);
-            this.textBox1.TabIndex = 9;
+            this.textBoxFiltro.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBoxFiltro.Location = new System.Drawing.Point(181, 82);
+            this.textBoxFiltro.Name = "textBoxFiltro";
+            this.textBoxFiltro.Size = new System.Drawing.Size(281, 20);
+            this.textBoxFiltro.TabIndex = 9;
+            this.textBoxFiltro.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // btnBuscar
             // 
@@ -210,7 +211,7 @@
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxFiltro);
             this.Controls.Add(this.comboBoxFiltro1);
             this.Controls.Add(this.comboBoxFiltro2);
             this.Controls.Add(this.labelFiltro);
@@ -242,7 +243,7 @@
         private System.Windows.Forms.Label labelFiltro;
         private System.Windows.Forms.ComboBox comboBoxFiltro2;
         private System.Windows.Forms.ComboBox comboBoxFiltro1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxFiltro;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnEliminar;

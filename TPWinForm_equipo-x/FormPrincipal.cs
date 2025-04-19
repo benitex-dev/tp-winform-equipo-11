@@ -40,31 +40,26 @@ namespace TPWinForm_equipo_11
         private void cargar()
         {
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
-<<<<<<< HEAD
+
 
             try
             {
                 listaArticulos = articuloNegocio.listar();
-=======
-            try
-            {
->>>>>>> 4608460bc4ccc3479e4cc4e3003a429fd46e3ca9
                 //listamos los articulos en nuestro data grid view
                 dgvCatalogo.DataSource = articuloNegocio.listar();
                 //escondemos la columna imagen ya que la url de la misma no es importante para el usuario
                 dgvCatalogo.Columns["Imagen"].Visible = false;
                 // escondemos la columna id ya que la misma solo es importante para el desarrollador
-                dgvCatalogo.Columns["Id"].Visible = false;
+                dgvCatalogo.Columns["Id"].Visible = false;       
             }
-<<<<<<< HEAD
-            catch (Exception ex )
-=======
+
+
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.ToString());
             }
         }
+
 
         private void cargarImagen(string imagen)
         {
@@ -122,21 +117,36 @@ namespace TPWinForm_equipo_11
                 }
             }
             catch (Exception ex)
->>>>>>> 4608460bc4ccc3479e4cc4e3003a429fd46e3ca9
+
             {
 
                 MessageBox.Show(ex.ToString());
             }
 
-<<<<<<< HEAD
-        
-=======
 
         }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             eliminar();      
->>>>>>> 4608460bc4ccc3479e4cc4e3003a429fd46e3ca9
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            List<Articulo> listaFiltrada;
+            string filtro = textBoxFiltro.Text;
+
+            if(filtro != "")
+            {
+                listaFiltrada = listaArticulos.FindAll(x => x.CodArticulo.ToUpper().Contains(filtro.ToUpper())|| x.Marca.Descripcion.ToUpper().Contains(filtro.ToUpper()) || x.Nombre.ToUpper().Contains(filtro.ToUpper()) || x.Categoria.Descripcion.ToUpper().Contains(filtro.ToUpper()));
+            }
+            else
+            {
+                listaFiltrada = listaArticulos;
+            }
+
+            dgvCatalogo.DataSource = null;
+            dgvCatalogo.DataSource = listaFiltrada;
         }
     }
 }

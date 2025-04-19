@@ -9,9 +9,7 @@ namespace negocio
 {
     public class ArticuloNegocio
     {
-<<<<<<< HEAD
 
-=======
        public int getUltimoRegistroInsertado()
         {   AccesoDatos accesoDatos = new AccesoDatos();
             try
@@ -34,7 +32,6 @@ namespace negocio
             }
             finally { accesoDatos.cerrarConexion(); }
         }
->>>>>>> 4608460bc4ccc3479e4cc4e3003a429fd46e3ca9
         public void agregarArticulo(Articulo articulo)
         {   AccesoDatos accesoDatos = new AccesoDatos();
 

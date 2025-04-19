@@ -25,12 +25,17 @@ namespace TPWinForm_equipo_11
             FormAltaArticulo altaArticulo = new FormAltaArticulo();
             
             altaArticulo.ShowDialog();
-            
+            cargar();
         }
 
         
 
         private void VentanaPrincipal_Load(object sender, EventArgs e)
+        {
+            cargar();
+           
+        }
+        private void cargar()
         {
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
             try
@@ -47,7 +52,6 @@ namespace TPWinForm_equipo_11
 
                 MessageBox.Show(ex.ToString());
             }
-           
         }
 
         private void cargarImagen(string imagen)

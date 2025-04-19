@@ -156,6 +156,7 @@
             this.txtImg.Name = "txtImg";
             this.txtImg.Size = new System.Drawing.Size(181, 20);
             this.txtImg.TabIndex = 11;
+            this.txtImg.Leave += new System.EventHandler(this.txtImg_Leave);
             // 
             // txtPrecio
             // 

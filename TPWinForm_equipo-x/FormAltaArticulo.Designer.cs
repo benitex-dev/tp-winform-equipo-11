@@ -197,7 +197,7 @@
             this.btnCrearArticulo.Name = "btnCrearArticulo";
             this.btnCrearArticulo.Size = new System.Drawing.Size(75, 23);
             this.btnCrearArticulo.TabIndex = 16;
-            this.btnCrearArticulo.Text = "Crear";
+            this.btnCrearArticulo.Text = "Agregar";
             this.btnCrearArticulo.UseVisualStyleBackColor = true;
             this.btnCrearArticulo.Click += new System.EventHandler(this.btnCrearArticulo_Click);
             // 
@@ -233,8 +233,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblTitulo);
+            this.MaximumSize = new System.Drawing.Size(663, 564);
+            this.MinimumSize = new System.Drawing.Size(663, 564);
             this.Name = "FormAltaArticulo";
-            this.Text = "FormAltaArticulo";
+            this.Text = "Alta Articulo";
             this.Load += new System.EventHandler(this.FormAltaArticulo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxArticulo)).EndInit();
             this.ResumeLayout(false);

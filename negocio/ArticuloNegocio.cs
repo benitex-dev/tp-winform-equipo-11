@@ -76,7 +76,7 @@ namespace negocio
             
             try
             {
-                datos.setConsulta("SELECT A.ID, CODIGO, NOMBRE, A.DESCRIPCION, PRECIO, M.Descripcion Marca, C.Descripcion Categoria FROM ARTICULOS A, MARCAS M, CATEGORIAS C WHERE M.ID = A.IDMARCA AND C.ID = A.IdCategoria");
+                datos.setConsulta("SELECT A.ID, CODIGO, NOMBRE, A.DESCRIPCION, PRECIO, M.Descripcion Marca, C.Descripcion Categoria, A.IdCategoria, A.IdMarca FROM ARTICULOS A, MARCAS M, CATEGORIAS C WHERE M.ID = A.IDMARCA AND C.ID = A.IdCategoria");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -91,9 +91,11 @@ namespace negocio
                         articulo.Precio = decimal.Parse(datos.Lector["PRECIO"].ToString());
                     
                     articulo.Marca = new Marca();
+                    articulo.Marca.Id = (int)datos.Lector["IdMarca"];
                     articulo.Marca.Descripcion = (string)datos.Lector["Marca"];
                     
                     articulo.Categoria = new Categoria();
+                    articulo.Categoria.Id = (int)datos.Lector["IdCategoria"];
                     articulo.Categoria.Descripcion = (string)datos.Lector["Categoria"];
                     
                     articulos.Add(articulo);
@@ -102,6 +104,35 @@ namespace negocio
                 return articulos;
             }
             
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public void modificar(Articulo articulo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+           
+
+            try
+            {
+                datos.setConsulta("UPDATE ARTICULOS SET Codigo = @cod, Nombre = @nombre, Descripcion = @desc, IdMarca = @idMarca, IdCategoria = @idCat, Precio = @precio WHERE Id = @id");
+                datos.setParametro("@cod", articulo.CodArticulo);
+                datos.setParametro("@nombre", articulo.Nombre);
+                datos.setParametro("@desc", articulo.Descripcion);
+                datos.setParametro("@idMarca", articulo.Marca.Id);
+                datos.setParametro("@idCat", articulo.Categoria.Id);
+                datos.setParametro("@precio", articulo.Precio);
+                datos.setParametro("@id", articulo.Id);
+
+                datos.ejecutarAccion();
+            }
             catch (Exception ex)
             {
 

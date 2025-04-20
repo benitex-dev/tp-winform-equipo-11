@@ -165,5 +165,17 @@ namespace TPWinForm_equipo_11
             textBoxFiltro.Text = "";
 
         }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+
+            Articulo seleccionado;
+            seleccionado = (Articulo)dgvCatalogo.CurrentRow.DataBoundItem;
+
+            FormAltaArticulo modificarArticulo = new FormAltaArticulo(seleccionado);
+
+            modificarArticulo.ShowDialog();
+            cargar();
+        }
     }
 }

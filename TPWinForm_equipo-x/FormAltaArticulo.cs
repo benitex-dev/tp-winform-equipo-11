@@ -59,7 +59,7 @@ namespace TPWinForm_equipo_11
                 if (!(soloNumeros(txtPrecio.Text))) return;
                
 
-                articulo.Precio =decimal.Parse(txtPrecio.Text) ;
+                articulo.Precio =decimal.Parse(txtPrecio.Text);
                 articulo.Marca =(Marca) cmbMarca.SelectedItem;
                 articulo.Categoria = (Categoria) cmbCategoria.SelectedItem;
                 

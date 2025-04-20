@@ -201,7 +201,7 @@ namespace TPWinForm_equipo_11
             textBoxFiltro.Text = "";
             txtFiltroAvanzado.Text = "";
             comboBoxCampo.Items.Clear();
-            comboBoxCriterio.Items.Clear();
+            
             
             cargar();
             

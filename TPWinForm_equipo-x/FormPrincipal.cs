@@ -173,14 +173,30 @@ namespace TPWinForm_equipo_11
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            if (dgvCatalogo.CurrentRow == null || dgvCatalogo.CurrentRow.DataBoundItem == null)
+            {
+                MessageBox.Show("Seleccione un artículo para modificar");
+                return;
+            }
 
-            Articulo seleccionado;
-            seleccionado = (Articulo)dgvCatalogo.CurrentRow.DataBoundItem;
+            try
+            {
+                Articulo seleccionado;
+                seleccionado = (Articulo)dgvCatalogo.CurrentRow.DataBoundItem;
 
-            FormAltaArticulo modificarArticulo = new FormAltaArticulo(seleccionado);
+                FormAltaArticulo modificarArticulo = new FormAltaArticulo(seleccionado);
 
-            modificarArticulo.ShowDialog();
-            cargar();
+                modificarArticulo.ShowDialog();
+                cargar();
+            }
+           
+            catch(Exception ex)
+            {
+                MessageBox.Show("Modificación no permitida" + ex.ToString());
+            }
+           
+
+            
         }
         private void comboBoxCampo_SelectedIndexChanged(object sender, EventArgs e)
         {

@@ -200,7 +200,7 @@ namespace TPWinForm_equipo_11
                 comboBoxCriterio.Items.Add("Termina con");
                 comboBoxCriterio.Items.Add("Contiene");
             }
->>>>>>> 6657cd3c4d3b5b70a64a0e0a834482fb2f4af552
+
         }
     }
 }

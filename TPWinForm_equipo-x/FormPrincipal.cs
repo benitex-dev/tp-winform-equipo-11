@@ -35,7 +35,11 @@ namespace TPWinForm_equipo_11
         private void VentanaPrincipal_Load(object sender, EventArgs e)
         {
             cargar();
-           
+            
+            comboBoxCampo.Items.Add("Código");
+            comboBoxCampo.Items.Add("Nombre");
+            comboBoxCampo.Items.Add("Descripción");
+            comboBoxCampo.Items.Add("Precio");
         }
         private void cargar()
         {
@@ -166,6 +170,7 @@ namespace TPWinForm_equipo_11
 
         }
 
+<<<<<<< HEAD
         private void btnModificar_Click(object sender, EventArgs e)
         {
 
@@ -176,6 +181,26 @@ namespace TPWinForm_equipo_11
 
             modificarArticulo.ShowDialog();
             cargar();
+=======
+        private void comboBoxCampo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            string opcion = comboBoxCampo.SelectedItem.ToString();
+            if (opcion == "Precio")
+            {
+                comboBoxCriterio.Items.Clear();
+                comboBoxCriterio.Items.Add("Mayor a");
+                comboBoxCriterio.Items.Add("Menor a");
+                comboBoxCriterio.Items.Add("Igual a");
+            }
+            else
+            {
+                comboBoxCriterio.Items.Clear();
+                comboBoxCriterio.Items.Add("Comienza con");
+                comboBoxCriterio.Items.Add("Termina con");
+                comboBoxCriterio.Items.Add("Contiene");
+            }
+>>>>>>> 6657cd3c4d3b5b70a64a0e0a834482fb2f4af552
         }
     }
 }

@@ -37,7 +37,9 @@ namespace TPWinForm_equipo_11
         {   
            // Articulo articulo = new Articulo();
             Imagen imagen = new Imagen();
-            
+
+            List<Imagen> imagenes = new List<Imagen>();
+
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
             
             ImagenNegocio imagenNegocio = new ImagenNegocio();
@@ -62,24 +64,33 @@ namespace TPWinForm_equipo_11
                 articulo.Categoria = (Categoria) cmbCategoria.SelectedItem;
                 
                 imagen.URL = txtImg.Text;
+                imagen.IdArticulo = articulo.Id;
                 articulo.Imagen = imagen;
 
                 if (validarCampos()) return;
 
                 if (articulo.Id != 0)
                 {
-                   
-                    imagen.IdArticulo=articulo.Id;
-                    
+
+                    imagenes = imagenNegocio.listarImagenesArticulo(articulo.Id);
+                    if (imagenes.Count > 0 && imagenes != null)
+                    {
+                        imagen.Id = imagenes[0].Id;
+                        imagenNegocio.modificarImagenArticulo(imagen);//modifica la primer imagen
+                    }
+                    else
+                    {
+                        imagenNegocio.agregarImagenArticulo(imagen);// crea una nueva imagen si no tiene ninguna
+                    }
                     articuloNegocio.modificar(articulo);
-                    imagenNegocio.modificarImagenArticulo(imagen);
+                    
 
                     if (!string.IsNullOrWhiteSpace(txtImgNueva.Text))
                     {
                         Imagen imagenNueva = new Imagen();
                         imagenNueva.IdArticulo = articulo.Id;
                         imagenNueva.URL = txtImgNueva.Text;
-                        imagenNegocio.agregarImagenArticulo(imagenNueva);
+                        imagenNegocio.agregarImagenArticulo(imagenNueva);//agrega una nueva imagen
                     }
 
                     articuloNegocio.listar();

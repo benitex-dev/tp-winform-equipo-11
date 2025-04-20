@@ -16,7 +16,7 @@ namespace negocio
 
             try
             {
-                datos.setConsulta("select ImagenUrl from IMAGENES WHERE IDARTICULO ='" + id + "'");
+                datos.setConsulta("select ImagenUrl, ID from IMAGENES WHERE IDARTICULO ='" + id + "'");
                 datos.ejecutarLectura();
 
 
@@ -25,6 +25,7 @@ namespace negocio
                     Imagen imagen = new Imagen();
                   
                     imagen.URL = (string)datos.Lector["ImagenUrl"];
+                    imagen.Id = (int)datos.Lector["ID"];
 
                     listaImagen.Add(imagen);
 
@@ -73,7 +74,7 @@ namespace negocio
 
             try
             {
-                datos.setConsulta("UPDATE IMAGENES SET ImagenUrl = '" + imagen.URL + "' WHERE IDARTICULO = '" + imagen.IdArticulo + "'");
+                datos.setConsulta("UPDATE IMAGENES SET ImagenUrl = '" + imagen.URL + "' WHERE ID = '" + imagen.Id + "'");
                 datos.ejecutarAccion();
 
             }

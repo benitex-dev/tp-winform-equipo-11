@@ -26,7 +26,9 @@ namespace TPWinForm_equipo_11
         {
             InitializeComponent();
             this.articulo = articulo;
+           lblTitulo.Text = "Modificar Articulo";
             Text = "Modificar Articulo";
+            btnCrearArticulo.Text = "Modificar";
         }
 
         private void btnCrearArticulo_Click(object sender, EventArgs e)
@@ -58,7 +60,9 @@ namespace TPWinForm_equipo_11
 
                 if(articulo.Id != 0)
                 {
+                    imagen.IdArticulo=articulo.Id;
                     articuloNegocio.modificar(articulo);
+                    imagenNegocio.modificarImagenArticulo(imagen);
                     articuloNegocio.listar();
                     MessageBox.Show("Articulo modificado exitosamente");
                 }
@@ -89,6 +93,8 @@ namespace TPWinForm_equipo_11
         {
             CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
             MarcaNegocio marcaNegocio = new MarcaNegocio(); 
+            ImagenNegocio imagenNegocio = new ImagenNegocio();
+            List<Imagen> imagenes = new List<Imagen>(); 
             try
             {
                 cmbCategoria.DataSource = categoriaNegocio.listar();
@@ -103,11 +109,14 @@ namespace TPWinForm_equipo_11
                     txtNombreArt.Text = articulo.Nombre;
                     txtCodArt.Text = articulo.CodArticulo;
                     txtDescripArt.Text = articulo.Descripcion;
-                    if(articulo.Imagen != null && articulo.Imagen.URL != null)
-                    {
-                         txtImg.Text = articulo.Imagen.URL;
+                    
+                    //if(articulo.Imagen != null && articulo.Imagen.URL != null)
+                    //{
+                        int idArticulo = articulo.Id;
+                        imagenes = imagenNegocio.listarImagenesArticulo(idArticulo);
+                         txtImg.Text = imagenes[0].URL.ToString();
                          cargarImagen(txtImg.Text);
-                    }
+                    //}
                   
                     txtPrecio.Text = articulo.Precio.ToString();
 

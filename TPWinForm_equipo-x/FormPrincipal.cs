@@ -202,5 +202,66 @@ namespace TPWinForm_equipo_11
             }
 
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+            try
+            {   
+                //validacion para filtro avanzado
+                if (validarFiltro()) return;
+                string campo = comboBoxCampo.SelectedItem.ToString();
+                string criterio = comboBoxCriterio.SelectedItem.ToString();
+                string filtro = txtFiltroAvanzado.Text;
+
+                dgvCatalogo.DataSource = articuloNegocio.filtrar(campo, criterio, filtro);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        private bool validarFiltro()
+        {
+            if (comboBoxCampo.SelectedIndex < 0)
+            {
+
+                MessageBox.Show("Por favor seleccione el campo para filtrar");
+                return true;
+            }
+            if (comboBoxCriterio.SelectedIndex < 0)
+            {
+                MessageBox.Show("Seleccione el criterio para filtrar");
+                return true;
+            }
+            if (comboBoxCampo.SelectedItem.ToString() == "Precio")
+            {
+                if (string.IsNullOrEmpty(txtFiltroAvanzado.Text))
+                {
+                    MessageBox.Show("Debes cargar el filtro para númericos");
+                    return true;
+                }
+
+                if (!(soloNumeros(txtFiltroAvanzado.Text)))
+                {
+                    MessageBox.Show("Solo numeros para filtrar por campo numerico");
+                    return true;
+                }
+            }
+
+            return false;
+        }
+        private bool soloNumeros(string cadena)
+        {
+            foreach (char caracter in cadena)
+            {
+
+                if (!(char.IsNumber(caracter)))
+                { return false; }
+
+            }
+            return true;
+        }
     }
 }

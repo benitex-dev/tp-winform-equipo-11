@@ -93,12 +93,30 @@ namespace TPWinForm_equipo_11
 
         private void btnDetalle_Click(object sender, EventArgs e)
         {
-            Articulo seleccionado;
-            seleccionado = (Articulo)dgvCatalogo.CurrentRow.DataBoundItem;
 
-            FormDetalle formDetalle = new FormDetalle(seleccionado);
+            if (dgvCatalogo.CurrentRow == null || dgvCatalogo.CurrentRow.DataBoundItem == null)
+            {
+                MessageBox.Show("Seleccione un artículo para ver detalle");
+                return;
+            }
 
-            formDetalle.ShowDialog();
+            try
+            {
+                Articulo seleccionado;
+                seleccionado = (Articulo)dgvCatalogo.CurrentRow.DataBoundItem;
+
+                FormDetalle formDetalle = new FormDetalle(seleccionado);
+
+                formDetalle.ShowDialog();
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Acceso inválido" + ex.ToString());
+            }
+            
+            
         }
 
         private void eliminar()

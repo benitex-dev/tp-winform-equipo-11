@@ -16,7 +16,9 @@ namespace TPWinForm_equipo_11
     public partial class FormAltaArticulo : Form
     {
         private Articulo articulo = null;
-
+        private List<Imagen> imagenes = new List<Imagen>();
+        private int siguiente = 0;
+        private int contadorImagen = 1;
         public FormAltaArticulo()
         {
             InitializeComponent();
@@ -31,6 +33,10 @@ namespace TPWinForm_equipo_11
             btnCrearArticulo.Text = "Modificar";
             lblImgNueva.Visible = true;
             txtImgNueva.Visible = true;
+
+            btnEliminarImg.Visible = true;
+            btnNext.Visible = true;
+            btnPrevious.Visible = true;
         }
 
         private void btnCrearArticulo_Click(object sender, EventArgs e)
@@ -38,7 +44,7 @@ namespace TPWinForm_equipo_11
            // Articulo articulo = new Articulo();
             Imagen imagen = new Imagen();
 
-            List<Imagen> imagenes = new List<Imagen>();
+            
 
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
             
@@ -121,55 +127,7 @@ namespace TPWinForm_equipo_11
 
         private void FormAltaArticulo_Load(object sender, EventArgs e)
         {
-            CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
-            MarcaNegocio marcaNegocio = new MarcaNegocio(); 
-            ImagenNegocio imagenNegocio = new ImagenNegocio();
-            List<Imagen> imagenes = new List<Imagen>(); 
-            try
-            {
-                cmbCategoria.DataSource = categoriaNegocio.listar();
-                cmbCategoria.ValueMember = "Id";
-                cmbCategoria.DisplayMember = "Descripcion";
-                cmbMarca.DataSource = marcaNegocio.listar();
-                cmbMarca.ValueMember = "Id";
-                cmbMarca.DisplayMember = "Descripcion";
-
-                if (articulo != null)
-                {
-                    txtNombreArt.Text = articulo.Nombre;
-                    txtCodArt.Text = articulo.CodArticulo;
-                    txtDescripArt.Text = articulo.Descripcion;
-                    
-
-                    
-                    int idArticulo = articulo.Id;
-                    imagenes = imagenNegocio.listarImagenesArticulo(idArticulo);
-                    if (imagenes.Count > 0 && imagenes != null)
-                    {
-                        txtImg.Text = imagenes[0].URL.ToString();
-                        cargarImagen(txtImg.Text);
-                    }
-                    else
-                    {
-                        cargarImagen("https://cdn-icons-png.flaticon.com/512/813/813728.png"); //se carga una imagen por defecto
-                        
-                    }
-
-
-
-                    txtPrecio.Text = articulo.Precio.ToString();
-
-                    cmbCategoria.SelectedValue = articulo.Categoria.Id;
-                    cmbMarca.SelectedValue = articulo.Marca.Id;
-
-
-                }
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
+            cargar();
         }
 
         private void txtImg_Leave(object sender, EventArgs e)
@@ -239,6 +197,116 @@ namespace TPWinForm_equipo_11
                 return false;
             }
             return true;
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+
+            if (siguiente < imagenes.Count - 1)
+            {
+                siguiente++;
+                contadorImagen = 1 + siguiente;
+                cargarImagen(imagenes[siguiente].URL);
+                btnPrevious.Visible = true;
+                btnNext.Visible = siguiente < imagenes.Count - 1;
+                lblImagen.Text = "Imagen " + contadorImagen + " de " + imagenes.Count;
+                txtImg.Text = imagenes[siguiente].URL.ToString();
+            }
+        }
+
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+            if (siguiente >= 1)
+            {
+                siguiente--;
+                contadorImagen = 1 + siguiente;
+                cargarImagen(imagenes[siguiente].URL);
+                btnNext.Visible = true;
+                btnPrevious.Visible = siguiente >= 1;
+                lblImagen.Text = "Imagen " + contadorImagen + " de " + imagenes.Count;
+                txtImg.Text = imagenes[siguiente].URL.ToString();
+            }
+
+        }
+
+        private void btnEliminarImg_Click(object sender, EventArgs e)
+        {
+            ImagenNegocio imagenNegocio = new ImagenNegocio();
+            try
+            {
+                DialogResult respuesta = MessageBox.Show("¿De verdad queres Eliminar la imagen visualizada?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (respuesta == DialogResult.Yes)
+                {
+                    imagenNegocio.eliminarImagenArticulo(imagenes[siguiente].Id);
+                    cargar();
+                    
+                    
+                }
+            }
+            catch (Exception ex)
+
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void cargar()
+        {
+            CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
+            MarcaNegocio marcaNegocio = new MarcaNegocio();
+            ImagenNegocio imagenNegocio = new ImagenNegocio();
+            try
+            {
+                cmbCategoria.DataSource = categoriaNegocio.listar();
+                cmbCategoria.ValueMember = "Id";
+                cmbCategoria.DisplayMember = "Descripcion";
+                cmbMarca.DataSource = marcaNegocio.listar();
+                cmbMarca.ValueMember = "Id";
+                cmbMarca.DisplayMember = "Descripcion";
+
+                if (articulo != null)
+                {
+                    txtNombreArt.Text = articulo.Nombre;
+                    txtCodArt.Text = articulo.CodArticulo;
+                    txtDescripArt.Text = articulo.Descripcion;
+
+
+
+                    int idArticulo = articulo.Id;
+                    imagenes = imagenNegocio.listarImagenesArticulo(idArticulo);
+                    if (imagenes.Count > 0 && imagenes != null)
+                    {
+                        cargarImagen(imagenes[siguiente].URL);
+                        txtImg.Text = imagenes[siguiente].URL.ToString();
+                        btnNext.Visible = imagenes.Count > 1;
+                        lblImagen.Text = "Imagen " + contadorImagen + " de " + imagenes.Count;
+                    }
+                    else
+                    {
+                        pictureBoxArticulo.Load("https://cdn-icons-png.flaticon.com/512/813/813728.png"); //se carga una imagen por defecto
+                        btnNext.Visible = false;
+                        lblImagen.Text = "Articulo sin imagen ";
+                        btnEliminarImg.Visible = false;
+                    }
+
+
+
+                    txtPrecio.Text = articulo.Precio.ToString();
+
+                    cmbCategoria.SelectedValue = articulo.Categoria.Id;
+                    cmbMarca.SelectedValue = articulo.Marca.Id;
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
         }
     }
 }

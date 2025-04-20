@@ -48,18 +48,23 @@
             this.btnCancelarArticulo = new System.Windows.Forms.Button();
             this.txtImgNueva = new System.Windows.Forms.TextBox();
             this.lblImgNueva = new System.Windows.Forms.Label();
+            this.btnEliminarImg = new System.Windows.Forms.Button();
+            this.btnPrevious = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.lblImagen = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxArticulo)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitulo
             // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(8, 9);
+            this.lblTitulo.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Location = new System.Drawing.Point(-1, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(131, 37);
+            this.lblTitulo.Size = new System.Drawing.Size(651, 31);
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "TITULO";
+            this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
@@ -187,9 +192,9 @@
             // 
             // pictureBoxArticulo
             // 
-            this.pictureBoxArticulo.Location = new System.Drawing.Point(138, 255);
+            this.pictureBoxArticulo.Location = new System.Drawing.Point(138, 265);
             this.pictureBoxArticulo.Name = "pictureBoxArticulo";
-            this.pictureBoxArticulo.Size = new System.Drawing.Size(385, 230);
+            this.pictureBoxArticulo.Size = new System.Drawing.Size(385, 220);
             this.pictureBoxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxArticulo.TabIndex = 15;
             this.pictureBoxArticulo.TabStop = false;
@@ -233,11 +238,62 @@
             this.lblImgNueva.Text = "NUEVA IMAGEN URL";
             this.lblImgNueva.Visible = false;
             // 
+            // btnEliminarImg
+            // 
+            this.btnEliminarImg.Location = new System.Drawing.Point(3, 255);
+            this.btnEliminarImg.Name = "btnEliminarImg";
+            this.btnEliminarImg.Size = new System.Drawing.Size(121, 23);
+            this.btnEliminarImg.TabIndex = 20;
+            this.btnEliminarImg.Text = "Eliminar Imagen";
+            this.btnEliminarImg.UseVisualStyleBackColor = true;
+            this.btnEliminarImg.Visible = false;
+            this.btnEliminarImg.Click += new System.EventHandler(this.btnEliminarImg_Click);
+            // 
+            // btnPrevious
+            // 
+            this.btnPrevious.Location = new System.Drawing.Point(102, 342);
+            this.btnPrevious.Name = "btnPrevious";
+            this.btnPrevious.Size = new System.Drawing.Size(22, 28);
+            this.btnPrevious.TabIndex = 21;
+            this.btnPrevious.Text = "<";
+            this.btnPrevious.UseVisualStyleBackColor = false;
+            this.btnPrevious.Visible = false;
+            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
+            // 
+            // btnNext
+            // 
+            this.btnNext.Location = new System.Drawing.Point(546, 342);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(22, 28);
+            this.btnNext.TabIndex = 22;
+            this.btnNext.Text = ">";
+            this.btnNext.UseVisualStyleBackColor = false;
+            this.btnNext.Visible = false;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // lblImagen
+            // 
+            this.lblImagen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblImagen.AutoSize = true;
+            this.lblImagen.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblImagen.Location = new System.Drawing.Point(310, 249);
+            this.lblImagen.Name = "lblImagen";
+            this.lblImagen.Size = new System.Drawing.Size(41, 13);
+            this.lblImagen.TabIndex = 23;
+            this.lblImagen.Text = "label7";
+            this.lblImagen.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // FormAltaArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(647, 525);
+            this.Controls.Add(this.lblImagen);
+            this.Controls.Add(this.btnNext);
+            this.Controls.Add(this.btnPrevious);
+            this.Controls.Add(this.btnEliminarImg);
             this.Controls.Add(this.txtImgNueva);
             this.Controls.Add(this.lblImgNueva);
             this.Controls.Add(this.btnCancelarArticulo);
@@ -259,7 +315,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblTitulo);
             this.MaximumSize = new System.Drawing.Size(663, 564);
-            this.MinimumSize = new System.Drawing.Size(663, 564);
+            this.MinimumSize = new System.Drawing.Size(663, 423);
             this.Name = "FormAltaArticulo";
             this.Text = "Alta Articulo";
             this.Load += new System.EventHandler(this.FormAltaArticulo_Load);
@@ -291,5 +347,9 @@
         private System.Windows.Forms.Button btnCancelarArticulo;
         private System.Windows.Forms.TextBox txtImgNueva;
         private System.Windows.Forms.Label lblImgNueva;
+        private System.Windows.Forms.Button btnEliminarImg;
+        private System.Windows.Forms.Button btnPrevious;
+        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Label lblImagen;
     }
 }

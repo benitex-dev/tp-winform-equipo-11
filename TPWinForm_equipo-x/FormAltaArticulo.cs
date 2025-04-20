@@ -15,20 +15,36 @@ namespace TPWinForm_equipo_11
 {
     public partial class FormAltaArticulo : Form
     {
+        private Articulo articulo = null;
+
         public FormAltaArticulo()
         {
             InitializeComponent();
         }
 
+        public FormAltaArticulo(Articulo articulo)
+        {
+            InitializeComponent();
+            this.articulo = articulo;
+            Text = "Modificar Articulo";
+        }
+
         private void btnCrearArticulo_Click(object sender, EventArgs e)
         {   
-            Articulo articulo = new Articulo();
+           // Articulo articulo = new Articulo();
             Imagen imagen = new Imagen();
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
             
             ImagenNegocio imagenNegocio = new ImagenNegocio();
             try
             {
+                if(articulo == null)
+                {
+                    articulo = new Articulo();
+
+                }
+                    
+
                 articulo.CodArticulo = txtCodArt.Text;
                 articulo.Nombre = txtNombreArt.Text;
                 articulo.Descripcion = txtDescripArt.Text;
@@ -39,16 +55,27 @@ namespace TPWinForm_equipo_11
                 imagen.URL = txtImg.Text;
                 articulo.Imagen = imagen;
 
-                articuloNegocio.agregarArticulo(articulo);
-                articuloNegocio.listar();
+
+                if(articulo.Id != 0)
+                {
+                    articuloNegocio.modificar(articulo);
+                    articuloNegocio.listar();
+                    MessageBox.Show("Articulo modificado exitosamente");
+                }
+                else
+                {
+                    articuloNegocio.agregarArticulo(articulo);
+                    articuloNegocio.listar();
+
+                    int idUltimoArticuloInsertado = 0;
+                    idUltimoArticuloInsertado = articuloNegocio.getUltimoRegistroInsertado();
+
+                    imagen.IdArticulo = idUltimoArticuloInsertado;
+                    imagenNegocio.agregarImagenArticulo(imagen);
+
+                    MessageBox.Show("Articulo agregado exitosamente");
+                }
                 
-                int idUltimoArticuloInsertado = 0;
-                idUltimoArticuloInsertado = articuloNegocio.getUltimoRegistroInsertado();
-
-                imagen.IdArticulo = idUltimoArticuloInsertado;
-                imagenNegocio.agregarImagenArticulo(imagen);
-
-                MessageBox.Show("Articulo agregado exitosamente");
                 Close();
             }
             catch (Exception ex)
@@ -65,7 +92,30 @@ namespace TPWinForm_equipo_11
             try
             {
                 cmbCategoria.DataSource = categoriaNegocio.listar();
+                cmbCategoria.ValueMember = "Id";
+                cmbCategoria.DisplayMember = "Descripcion";
                 cmbMarca.DataSource = marcaNegocio.listar();
+                cmbMarca.ValueMember = "Id";
+                cmbMarca.DisplayMember = "Descripcion";
+
+                if (articulo != null)
+                {
+                    txtNombreArt.Text = articulo.Nombre;
+                    txtCodArt.Text = articulo.CodArticulo;
+                    txtDescripArt.Text = articulo.Descripcion;
+                    if(articulo.Imagen != null && articulo.Imagen.URL != null)
+                    {
+                         txtImg.Text = articulo.Imagen.URL;
+                         cargarImagen(txtImg.Text);
+                    }
+                  
+                    txtPrecio.Text = articulo.Precio.ToString();
+
+                    cmbCategoria.SelectedValue = articulo.Categoria.Id;
+                    cmbMarca.SelectedValue = articulo.Marca.Id;
+
+
+                }
             }
             catch (Exception ex)
             {

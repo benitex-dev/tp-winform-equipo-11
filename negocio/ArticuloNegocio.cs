@@ -112,5 +112,110 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
+
+        public List<Articulo> filtrar(string campo, string criterio, string filtro)
+        {
+            List<Articulo> lista = new List<Articulo>();
+            AccesoDatos data = new AccesoDatos();
+            try
+            {
+                string consulta = "SELECT Codigo, Nombre, A.Descripcion, M.Descripcion AS Marca, C.Descripcion AS Categoria, Precio, A.IdMarca, A.IdCategoria, A.Id \r\nFROM ARTICULOS A,MARCAS M,CATEGORIAS C \r\nWHERE\r\nM.Id = A.IdMarca\r\nAND C.Id=A.IdCategoria\r\nAND ";
+                if (campo == "Precio")
+                {
+                    switch (criterio)
+                    {
+                        case "Mayor a":
+                            consulta += "Precio > " + filtro;
+                            break;
+                        case "Menor a":
+                            consulta += "Precio < " + filtro;
+                            break;
+                        default:
+                            consulta += "Precio = " + filtro;
+                            break;
+                    }
+                }
+                else if (campo == "Nombre")
+                {
+                    switch (criterio)
+                    {
+                        case "Comienza con":
+                            consulta += "Nombre like '" + filtro + "%' ";
+                            break;
+                        case "Termina con":
+                            consulta += "Nombre like '%" + filtro + "'";
+                            break;
+                        default:
+                            consulta += "Nombre like '%" + filtro + "%'";
+                            break;
+                    }
+                }
+                else if (campo == "Código")
+                {
+                    switch (criterio)
+                    {
+                        case "Comienza con":
+                            consulta += "Codigo like '" + filtro + "%' ";
+                            break;
+                        case "Termina con":
+                            consulta += "Codigo like '%" + filtro + "'";
+                            break;
+                        default:
+                            consulta += "Codigo like '%" + filtro + "%'";
+                            break;
+                    }
+                }
+                else
+                {
+                    switch (criterio)
+                    {
+                        case "Comienza con":
+                            consulta += "A.Descripcion like '" + filtro + "%' ";
+                            break;
+                        case "Termina con":
+                            consulta += "A.Descripcion like '%" + filtro + "'";
+                            break;
+                        default:
+                            consulta += "A.Descripcion like '%" + filtro + "%'";
+                            break;
+                    }
+                }
+
+                data.setConsulta(consulta);
+                data.ejecutarLectura();
+
+                while (data.Lector.Read())
+                {
+                    Articulo articuloAuxiliar = new Articulo();
+                    articuloAuxiliar.Id = (int)data.Lector["Id"];
+                    articuloAuxiliar.CodArticulo = (string)data.Lector["Codigo"];
+                    articuloAuxiliar.Nombre = (string)data.Lector["Nombre"];
+                    articuloAuxiliar.Descripcion = (string)data.Lector["Descripcion"];
+
+                    
+
+                    if (!(data.Lector["Precio"] is DBNull))
+                        articuloAuxiliar.Precio = decimal.Parse(data.Lector["Precio"].ToString());
+
+
+                    articuloAuxiliar.Marca = new Marca();
+                    articuloAuxiliar.Marca.Id = (int)data.Lector["IdMarca"];
+                    articuloAuxiliar.Marca.Descripcion = (string)data.Lector["Marca"];
+                    articuloAuxiliar.Categoria = new Categoria();
+                    articuloAuxiliar.Categoria.Id = (int)data.Lector["IdCategoria"];
+                    articuloAuxiliar.Categoria.Descripcion = (string)data.Lector["Categoria"];
+
+
+                    lista.Add(articuloAuxiliar);
+                }
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

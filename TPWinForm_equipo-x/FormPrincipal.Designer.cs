@@ -39,10 +39,11 @@
             this.textBoxFiltro = new System.Windows.Forms.TextBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnFiltro = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.labelCatalogo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtFiltroAvanzado = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCatalogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImagen)).BeginInit();
             this.SuspendLayout();
@@ -172,17 +173,18 @@
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // btnFiltro
+            // btnBuscar
             // 
-            this.btnFiltro.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnFiltro.BackColor = System.Drawing.SystemColors.Control;
-            this.btnFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFiltro.Location = new System.Drawing.Point(35, 260);
-            this.btnFiltro.Name = "btnFiltro";
-            this.btnFiltro.Size = new System.Drawing.Size(121, 42);
-            this.btnFiltro.TabIndex = 13;
-            this.btnFiltro.Text = "Filtrar";
-            this.btnFiltro.UseVisualStyleBackColor = false;
+            this.btnBuscar.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnBuscar.BackColor = System.Drawing.SystemColors.Control;
+            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.Location = new System.Drawing.Point(34, 288);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(121, 42);
+            this.btnBuscar.TabIndex = 13;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // labelCatalogo
             // 
@@ -220,16 +222,25 @@
             this.label2.TabIndex = 16;
             this.label2.Text = "Criterio";
             // 
+            // txtFiltroAvanzado
+            // 
+            this.txtFiltroAvanzado.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtFiltroAvanzado.Location = new System.Drawing.Point(34, 262);
+            this.txtFiltroAvanzado.Name = "txtFiltroAvanzado";
+            this.txtFiltroAvanzado.Size = new System.Drawing.Size(122, 20);
+            this.txtFiltroAvanzado.TabIndex = 17;
+            // 
             // VentanaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(970, 553);
+            this.Controls.Add(this.txtFiltroAvanzado);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelCatalogo);
-            this.Controls.Add(this.btnFiltro);
+            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.textBoxFiltro);
@@ -267,9 +278,10 @@
         private System.Windows.Forms.TextBox textBoxFiltro;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnFiltro;
+        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label labelCatalogo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtFiltroAvanzado;
     }
 }

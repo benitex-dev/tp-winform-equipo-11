@@ -188,6 +188,7 @@
             this.pictureBoxArticulo.Location = new System.Drawing.Point(139, 233);
             this.pictureBoxArticulo.Name = "pictureBoxArticulo";
             this.pictureBoxArticulo.Size = new System.Drawing.Size(385, 230);
+            this.pictureBoxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxArticulo.TabIndex = 15;
             this.pictureBoxArticulo.TabStop = false;
             // 

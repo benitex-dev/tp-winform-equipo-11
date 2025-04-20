@@ -50,6 +50,10 @@ namespace TPWinForm_equipo_11
                 articulo.CodArticulo = txtCodArt.Text;
                 articulo.Nombre = txtNombreArt.Text;
                 articulo.Descripcion = txtDescripArt.Text;
+
+                if (!(soloNumeros(txtPrecio.Text))) return;
+               
+
                 articulo.Precio =decimal.Parse(txtPrecio.Text) ;
                 articulo.Marca =(Marca) cmbMarca.SelectedItem;
                 articulo.Categoria = (Categoria) cmbCategoria.SelectedItem;
@@ -57,8 +61,9 @@ namespace TPWinForm_equipo_11
                 imagen.URL = txtImg.Text;
                 articulo.Imagen = imagen;
 
+                if (validarCampos()) return;
 
-                if(articulo.Id != 0)
+                if (articulo.Id != 0)
                 {
                     imagen.IdArticulo=articulo.Id;
                     articuloNegocio.modificar(articulo);
@@ -110,14 +115,22 @@ namespace TPWinForm_equipo_11
                     txtCodArt.Text = articulo.CodArticulo;
                     txtDescripArt.Text = articulo.Descripcion;
                     
-                    //if(articulo.Imagen != null && articulo.Imagen.URL != null)
-                    //{
-                        int idArticulo = articulo.Id;
-                        imagenes = imagenNegocio.listarImagenesArticulo(idArticulo);
-                         txtImg.Text = imagenes[0].URL.ToString();
-                         cargarImagen(txtImg.Text);
-                    //}
-                  
+                    
+                    int idArticulo = articulo.Id;
+                    imagenes = imagenNegocio.listarImagenesArticulo(idArticulo);
+                    if (imagenes.Count > 0 && imagenes != null)
+                    {
+                        txtImg.Text = imagenes[0].URL.ToString();
+                        cargarImagen(txtImg.Text);
+                    }
+                    else
+                    {
+                        cargarImagen("https://cdn-icons-png.flaticon.com/512/813/813728.png"); //se carga una imagen por defecto
+                        
+                    }
+
+
+
                     txtPrecio.Text = articulo.Precio.ToString();
 
                     cmbCategoria.SelectedValue = articulo.Categoria.Id;
@@ -152,6 +165,50 @@ namespace TPWinForm_equipo_11
         private void btnCancelarArticulo_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private bool validarCampos()
+        {
+            if (string.IsNullOrEmpty(txtNombreArt.Text) && string.IsNullOrEmpty(txtCodArt.Text) && string.IsNullOrEmpty(txtDescripArt.Text))
+            {
+                MessageBox.Show("Debes completar los campos obligatorios");
+                return true;
+            }
+            if (string.IsNullOrEmpty(txtNombreArt.Text) || string.IsNullOrWhiteSpace(txtNombreArt.Text))
+            {
+                MessageBox.Show("Debes completar el campo de Nombre");
+                return true;
+            }
+            if (string.IsNullOrEmpty(txtCodArt.Text) || string.IsNullOrWhiteSpace(txtCodArt.Text))
+            {
+                MessageBox.Show("Debes completar el campo de Codigo");
+                return true;
+            }
+            if(string.IsNullOrEmpty(txtDescripArt.Text) || string.IsNullOrWhiteSpace(txtDescripArt.Text))
+            {
+                MessageBox.Show("Debes completar el campo de Descripcion");
+                return true;
+            }                      
+            return false;
+        }
+
+        private bool soloNumeros(string cadena)
+        {
+            foreach (char caracter in cadena)
+            {                
+                if (!(char.IsDigit(caracter)))
+                {
+                    MessageBox.Show("Solo números por favor para indicar el precio...");
+                    return false;
+                }
+                    
+            }
+            if (string.IsNullOrEmpty(txtPrecio.Text) || string.IsNullOrWhiteSpace(txtPrecio.Text))
+            {
+                MessageBox.Show("Debe completar el campo de precio...");
+                return false;
+            }
+            return true;
         }
     }
 }

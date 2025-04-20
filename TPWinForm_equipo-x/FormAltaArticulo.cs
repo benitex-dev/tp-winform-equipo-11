@@ -218,17 +218,21 @@ namespace TPWinForm_equipo_11
             return false;
         }
 
+        private bool Decimales(string cadena)
+        {
+            decimal numero;
+            return decimal.TryParse(cadena, out numero);
+        }
+
+
         private bool soloNumeros(string cadena)
         {
-            foreach (char caracter in cadena)
-            {                
-                if (!(char.IsDigit(caracter)))
-                {
-                    MessageBox.Show("Solo números por favor para indicar el precio...");
-                    return false;
-                }
-                    
+            if (!Decimales(txtPrecio.Text))
+            {
+                MessageBox.Show("Solo números por favor para indicar el precio...");
+                return false;
             }
+
             if (string.IsNullOrEmpty(txtPrecio.Text) || string.IsNullOrWhiteSpace(txtPrecio.Text))
             {
                 MessageBox.Show("Debe completar el campo de precio...");

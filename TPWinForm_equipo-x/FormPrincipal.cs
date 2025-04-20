@@ -148,7 +148,21 @@ namespace TPWinForm_equipo_11
         }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            eliminar();      
+            if (dgvCatalogo.CurrentRow == null || dgvCatalogo.CurrentRow.DataBoundItem == null)
+                {
+                    MessageBox.Show("Seleccione un artículo");
+                    return;
+                }
+            try
+            {
+                   eliminar();     
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+          
 
         }
 

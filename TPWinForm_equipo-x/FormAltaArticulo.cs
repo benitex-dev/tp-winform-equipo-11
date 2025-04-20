@@ -139,5 +139,10 @@ namespace TPWinForm_equipo_11
                 pictureBoxArticulo.Load("https://cdn-icons-png.flaticon.com/512/813/813728.png"); //se carga una imagen por defecto
             }
         }
+
+        private void btnCancelarArticulo_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

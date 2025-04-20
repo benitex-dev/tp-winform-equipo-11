@@ -209,6 +209,7 @@
             this.btnCancelarArticulo.TabIndex = 17;
             this.btnCancelarArticulo.Text = "Cancelar";
             this.btnCancelarArticulo.UseVisualStyleBackColor = true;
+            this.btnCancelarArticulo.Click += new System.EventHandler(this.btnCancelarArticulo_Click);
             // 
             // FormAltaArticulo
             // 

@@ -29,12 +29,15 @@ namespace TPWinForm_equipo_11
            lblTitulo.Text = "Modificar Articulo";
             Text = "Modificar Articulo";
             btnCrearArticulo.Text = "Modificar";
+            lblImgNueva.Visible = true;
+            txtImgNueva.Visible = true;
         }
 
         private void btnCrearArticulo_Click(object sender, EventArgs e)
         {   
            // Articulo articulo = new Articulo();
             Imagen imagen = new Imagen();
+            
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
             
             ImagenNegocio imagenNegocio = new ImagenNegocio();
@@ -65,9 +68,20 @@ namespace TPWinForm_equipo_11
 
                 if (articulo.Id != 0)
                 {
+                   
                     imagen.IdArticulo=articulo.Id;
+                    
                     articuloNegocio.modificar(articulo);
                     imagenNegocio.modificarImagenArticulo(imagen);
+
+                    if (!string.IsNullOrWhiteSpace(txtImgNueva.Text))
+                    {
+                        Imagen imagenNueva = new Imagen();
+                        imagenNueva.IdArticulo = articulo.Id;
+                        imagenNueva.URL = txtImgNueva.Text;
+                        imagenNegocio.agregarImagenArticulo(imagenNueva);
+                    }
+
                     articuloNegocio.listar();
                     MessageBox.Show("Articulo modificado exitosamente");
                 }
@@ -115,6 +129,7 @@ namespace TPWinForm_equipo_11
                     txtCodArt.Text = articulo.CodArticulo;
                     txtDescripArt.Text = articulo.Descripcion;
                     
+
                     
                     int idArticulo = articulo.Id;
                     imagenes = imagenNegocio.listarImagenesArticulo(idArticulo);

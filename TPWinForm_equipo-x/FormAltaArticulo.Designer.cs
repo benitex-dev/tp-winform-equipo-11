@@ -46,6 +46,8 @@
             this.pictureBoxArticulo = new System.Windows.Forms.PictureBox();
             this.btnCrearArticulo = new System.Windows.Forms.Button();
             this.btnCancelarArticulo = new System.Windows.Forms.Button();
+            this.txtImgNueva = new System.Windows.Forms.TextBox();
+            this.lblImgNueva = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxArticulo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -185,7 +187,7 @@
             // 
             // pictureBoxArticulo
             // 
-            this.pictureBoxArticulo.Location = new System.Drawing.Point(139, 233);
+            this.pictureBoxArticulo.Location = new System.Drawing.Point(138, 255);
             this.pictureBoxArticulo.Name = "pictureBoxArticulo";
             this.pictureBoxArticulo.Size = new System.Drawing.Size(385, 230);
             this.pictureBoxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -212,11 +214,32 @@
             this.btnCancelarArticulo.UseVisualStyleBackColor = true;
             this.btnCancelarArticulo.Click += new System.EventHandler(this.btnCancelarArticulo_Click);
             // 
+            // txtImgNueva
+            // 
+            this.txtImgNueva.Location = new System.Drawing.Point(198, 216);
+            this.txtImgNueva.Name = "txtImgNueva";
+            this.txtImgNueva.Size = new System.Drawing.Size(181, 20);
+            this.txtImgNueva.TabIndex = 19;
+            this.txtImgNueva.Visible = false;
+            // 
+            // lblImgNueva
+            // 
+            this.lblImgNueva.AutoSize = true;
+            this.lblImgNueva.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblImgNueva.Location = new System.Drawing.Point(12, 216);
+            this.lblImgNueva.Name = "lblImgNueva";
+            this.lblImgNueva.Size = new System.Drawing.Size(144, 17);
+            this.lblImgNueva.TabIndex = 18;
+            this.lblImgNueva.Text = "NUEVA IMAGEN URL";
+            this.lblImgNueva.Visible = false;
+            // 
             // FormAltaArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(647, 525);
+            this.Controls.Add(this.txtImgNueva);
+            this.Controls.Add(this.lblImgNueva);
             this.Controls.Add(this.btnCancelarArticulo);
             this.Controls.Add(this.btnCrearArticulo);
             this.Controls.Add(this.pictureBoxArticulo);
@@ -266,5 +289,7 @@
         private System.Windows.Forms.PictureBox pictureBoxArticulo;
         private System.Windows.Forms.Button btnCrearArticulo;
         private System.Windows.Forms.Button btnCancelarArticulo;
+        private System.Windows.Forms.TextBox txtImgNueva;
+        private System.Windows.Forms.Label lblImgNueva;
     }
 }

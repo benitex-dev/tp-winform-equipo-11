@@ -199,6 +199,12 @@ namespace TPWinForm_equipo_11
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             textBoxFiltro.Text = "";
+            txtFiltroAvanzado.Text = "";
+            comboBoxCampo.Items.Clear();
+            comboBoxCriterio.Items.Clear();
+            
+            cargar();
+            
 
         }
 

@@ -296,6 +296,7 @@ namespace TPWinForm_equipo_11
                         txtImg.Text = imagenes[siguiente].URL.ToString();
                         btnEliminarImg.Visible = true;
                         btnNext.Visible = imagenes.Count > 1;
+                        //validacion para ocultar label de imagen
                         lblImgNueva.Visible = imagenes.Count >= 1;
                         txtImgNueva.Visible = imagenes.Count >= 1;
                         lblImagen.Text = "Imagen " + contadorImagen + " de " + imagenes.Count;

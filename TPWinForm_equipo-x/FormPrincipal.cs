@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TPWinForm_equipo_11B;
 
 namespace TPWinForm_equipo_11
 {
@@ -199,12 +200,6 @@ namespace TPWinForm_equipo_11
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             textBoxFiltro.Text = "";
-            txtFiltroAvanzado.Text = "";
-            comboBoxCampo.Items.Clear();
-            
-            
-            cargar();
-            
 
         }
 
@@ -316,6 +311,14 @@ namespace TPWinForm_equipo_11
 
             }
             return true;
+        }
+        // boton agregar marcas
+        private void btnMarcas_Click(object sender, EventArgs e)
+        {
+            frmMarcas marcas = new frmMarcas();
+
+            marcas.ShowDialog();
+            cargar();
         }
     }
 }

@@ -44,6 +44,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtFiltroAvanzado = new System.Windows.Forms.TextBox();
+            this.btnMarcas = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCatalogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImagen)).BeginInit();
             this.SuspendLayout();
@@ -231,12 +232,25 @@
             this.txtFiltroAvanzado.Size = new System.Drawing.Size(122, 20);
             this.txtFiltroAvanzado.TabIndex = 17;
             // 
+            // btnMarcas
+            // 
+            this.btnMarcas.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnMarcas.BackColor = System.Drawing.SystemColors.Control;
+            this.btnMarcas.Location = new System.Drawing.Point(768, 405);
+            this.btnMarcas.Name = "btnMarcas";
+            this.btnMarcas.Size = new System.Drawing.Size(121, 52);
+            this.btnMarcas.TabIndex = 18;
+            this.btnMarcas.Text = "Marcas";
+            this.btnMarcas.UseVisualStyleBackColor = false;
+            this.btnMarcas.Click += new System.EventHandler(this.btnMarcas_Click);
+            // 
             // VentanaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(970, 553);
+            this.Controls.Add(this.btnMarcas);
             this.Controls.Add(this.txtFiltroAvanzado);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -284,5 +298,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtFiltroAvanzado;
+        private System.Windows.Forms.Button btnMarcas;
     }
 }

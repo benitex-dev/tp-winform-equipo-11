@@ -152,7 +152,7 @@
             // lblDescripcion
             // 
             this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Location = new System.Drawing.Point(95, 161);
+            this.lblDescripcion.Location = new System.Drawing.Point(112, 161);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(35, 13);
             this.lblDescripcion.TabIndex = 10;
@@ -161,7 +161,7 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(95, 84);
+            this.lblNombre.Location = new System.Drawing.Point(112, 84);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(35, 13);
             this.lblNombre.TabIndex = 11;
@@ -170,7 +170,7 @@
             // lblCodigo
             // 
             this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Location = new System.Drawing.Point(95, 49);
+            this.lblCodigo.Location = new System.Drawing.Point(112, 49);
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Size = new System.Drawing.Size(35, 13);
             this.lblCodigo.TabIndex = 12;
@@ -197,7 +197,7 @@
             // lblPrecio
             // 
             this.lblPrecio.AutoSize = true;
-            this.lblPrecio.Location = new System.Drawing.Point(95, 127);
+            this.lblPrecio.Location = new System.Drawing.Point(112, 127);
             this.lblPrecio.Name = "lblPrecio";
             this.lblPrecio.Size = new System.Drawing.Size(41, 13);
             this.lblPrecio.TabIndex = 15;

@@ -284,6 +284,7 @@
             this.lblImagen.TabIndex = 23;
             this.lblImagen.Text = "label7";
             this.lblImagen.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblImagen.Visible = false;
             // 
             // FormAltaArticulo
             // 

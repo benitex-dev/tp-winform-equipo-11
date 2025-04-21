@@ -36,7 +36,7 @@ namespace TPWinForm_equipo_11
 
             btnEliminarImg.Visible = true;
             btnNext.Visible = true;
-            btnPrevious.Visible = true;
+            lblImagen.Visible = true;
         }
 
         private void btnCrearArticulo_Click(object sender, EventArgs e)

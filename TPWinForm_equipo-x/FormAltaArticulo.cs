@@ -238,7 +238,7 @@ namespace TPWinForm_equipo_11
 
                 if (respuesta == DialogResult.Yes)
                 {
-                    imagenNegocio.eliminarImagenArticulo(imagenes[siguiente].Id);
+                    imagenNegocio.eliminarImagenArticulo(imagenes[siguiente].Id);         
                     cargar();
                     
                     

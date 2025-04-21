@@ -37,11 +37,7 @@ namespace negocio
 
             try
             {
-                accesoDatos.setConsulta("INSERT INTO ARTICULOS (Codigo,Nombre,Descripcion,Precio,IdCategoria,IdMarca)values(@CodArt,@Nombre,@Descripcion,@Precio,@IdCategoria,@IdMarca)");
-                accesoDatos.setParametro("@CodArt", articulo.CodArticulo);
-                accesoDatos.setParametro("@Nombre", articulo.Nombre);
-                accesoDatos.setParametro("@Descripcion", articulo.Descripcion);
-                accesoDatos.setParametro("@Precio", articulo.Precio);
+                accesoDatos.setConsulta("INSERT INTO ARTICULOS (Codigo,Nombre,Descripcion,Precio,IdCategoria,IdMarca)values('"+articulo.CodArticulo+"','"+articulo.Nombre+"','"+articulo.Descripcion+"',"+articulo.Precio+",@IdCategoria,@IdMarca)");
                 accesoDatos.setParametro("@IdCategoria", articulo.Categoria.Id);
                 accesoDatos.setParametro("@IdMarca", articulo.Marca.Id);
                 accesoDatos.ejecutarAccion();
@@ -63,7 +59,7 @@ namespace negocio
             {
                 AccesoDatos datos = new AccesoDatos();
                 datos.setConsulta("delete from ARTICULOS where id = @id");
-                datos.setParametro("Id", @id);
+                datos.setParametro("@Id", @id);
                 datos.ejecutarAccion();
             }
             catch (Exception ex)

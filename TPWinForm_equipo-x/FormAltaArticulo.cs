@@ -31,11 +31,7 @@ namespace TPWinForm_equipo_11
            lblTitulo.Text = "Modificar Articulo";
             Text = "Modificar Articulo";
             btnCrearArticulo.Text = "Modificar";
-            lblImgNueva.Visible = true;
-            txtImgNueva.Visible = true;
-
-            btnEliminarImg.Visible = true;
-            btnNext.Visible = true;
+            
             lblImagen.Visible = true;
         }
 
@@ -280,8 +276,12 @@ namespace TPWinForm_equipo_11
                     {
                         cargarImagen(imagenes[siguiente].URL);
                         txtImg.Text = imagenes[siguiente].URL.ToString();
+                        btnEliminarImg.Visible = true;
                         btnNext.Visible = imagenes.Count > 1;
+                        lblImgNueva.Visible = imagenes.Count > 1;
+                        txtImgNueva.Visible = imagenes.Count > 1;
                         lblImagen.Text = "Imagen " + contadorImagen + " de " + imagenes.Count;
+                        
                     }
                     else
                     {

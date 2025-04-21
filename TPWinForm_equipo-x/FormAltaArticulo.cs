@@ -234,7 +234,9 @@ namespace TPWinForm_equipo_11
 
                 if (respuesta == DialogResult.Yes)
                 {
-                    imagenNegocio.eliminarImagenArticulo(imagenes[siguiente].Id);         
+                    imagenNegocio.eliminarImagenArticulo(imagenes[siguiente].Id);
+                    siguiente = 0;
+                    contadorImagen = contadorImagen - 1;
                     cargar();
                     
                     
@@ -278,8 +280,8 @@ namespace TPWinForm_equipo_11
                         txtImg.Text = imagenes[siguiente].URL.ToString();
                         btnEliminarImg.Visible = true;
                         btnNext.Visible = imagenes.Count > 1;
-                        lblImgNueva.Visible = imagenes.Count > 1;
-                        txtImgNueva.Visible = imagenes.Count > 1;
+                        lblImgNueva.Visible = imagenes.Count >= 1;
+                        txtImgNueva.Visible = imagenes.Count >= 1;
                         lblImagen.Text = "Imagen " + contadorImagen + " de " + imagenes.Count;
                         
                     }

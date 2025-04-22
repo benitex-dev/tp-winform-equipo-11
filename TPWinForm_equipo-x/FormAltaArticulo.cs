@@ -251,6 +251,7 @@ namespace TPWinForm_equipo_11
                 if (respuesta == DialogResult.Yes)
                 {
                     imagenNegocio.eliminarImagenArticulo(imagenes[siguiente].Id);
+                    //optimización para que despues de eliminar imagen seleccionada no tire error
                     siguiente = 0;
                     contadorImagen = contadorImagen - 1;
                     cargar();
